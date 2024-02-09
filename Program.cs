@@ -1,41 +1,32 @@
-﻿public class Converter
+﻿namespace Converter
 {
-    public double ConvertToCm(int inches)
+    public class Convert
     {
-        return inches * 2.54;
-    }
-    public double ConvertToM(int inches)
-    {
-        return ConvertToCm(inches) / 100;
-    }
-    public double ConvertToMm(int inches)
-    {
-        return ConvertToCm(inches) * 10;
-    }
-    void Test(bool criteria, string description)
-    {
-        if (criteria)
+        public double ConvertToCm(int inches)
         {
-            Console.WriteLine($"SUCCESS, {description}");
+            return inches * 2.54;
         }
-        else
+        public double ConvertToM(int inches)
         {
-            Console.WriteLine($"FAILURE, {description}");
+            return ConvertToCm(inches) / 100;
+        }
+        public double ConvertToMm(int inches)
+        {
+            return ConvertToCm(inches) * 10;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Converter converter = new Converter();
+            Console.WriteLine(converter.ConvertToCm(1));
+            Console.WriteLine(converter.ConvertToM(1));
+            Console.WriteLine(converter.ConvertToMm(1));
         }
     }
 }
-
-class Program
-{
-    static void Main(string[] args)
-    {
-        Converter converter = new Converter();
-        Console.WriteLine(converter.ConvertToCm(1));
-        Console.WriteLine(converter.ConvertToM(1));
-        Console.WriteLine(converter.ConvertToMm(1));
-    }
-}
-
 public class Testing
 {
     public static void Test<T>(T expected, T actual, string description = "Test")
