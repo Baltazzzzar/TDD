@@ -2,15 +2,15 @@
 {
     public class Convert
     {
-        public double ConvertToCm(int inches)
+        public static double ConvertToCm(int inches)
         {
             return inches * 2.54;
         }
-        public double ConvertToM(int inches)
+        public static double ConvertToM(int inches)
         {
             return ConvertToCm(inches) / 100;
         }
-        public double ConvertToMm(int inches)
+        public static double ConvertToMm(int inches)
         {
             return ConvertToCm(inches) * 10;
         }
@@ -20,10 +20,34 @@
     {
         static void Main(string[] args)
         {
-            Converter converter = new Converter();
-            Console.WriteLine(converter.ConvertToCm(1));
-            Console.WriteLine(converter.ConvertToM(1));
-            Console.WriteLine(converter.ConvertToMm(1));
+            if (args.Length == 3)
+            {
+                if (args[2].Contains("-t"))
+                {
+                    int number = int.Parse(args[0]);
+                    string unit = args[1];
+                    if (unit == "-cm")
+                    {
+                        Testing.Test(Convert.ConvertToCm(number), 2.54 * number, "Test for ConvertToCm");
+                    }
+                    else if (unit == "-m")
+                    {
+                        Testing.Test(Convert.ConvertToM(number), 0.0254 * number, "Test for ConvertToM");
+                    }
+                    else if (unit == "-mm")
+                    {
+                        Testing.Test(Convert.ConvertToMm(number), 25.4 * number, "Test for ConvertToMm");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid unit");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input");
+                }
+            }
         }
     }
 }
