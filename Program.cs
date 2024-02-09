@@ -46,21 +46,20 @@
                 {
                     int number = int.Parse(args[0]);
                     string unit = args[1];
-                    if (unit == "-cm")
+                    switch (unit)
                     {
-                        Testing.Test(Convert.ConvertToCm(number), 2.54 * number, "Test for ConvertToCm");
-                    }
-                    else if (unit == "-m")
-                    {
-                        Testing.Test(Convert.ConvertToM(number), 0.0254 * number, "Test for ConvertToM");
-                    }
-                    else if (unit == "-mm")
-                    {
-                        Testing.Test(Convert.ConvertToMm(number), 25.4 * number, "Test for ConvertToMm");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid unit");
+                        case "-cm":
+                            Testing.Test(Convert.ConvertToCm(number), 2.54 * number, "Test for ConvertToCm");
+                            break;
+                        case "-m":
+                            Testing.Test(Convert.ConvertToM(number), 0.0254 * number, "Test for ConvertToM");
+                            break;
+                        case "-mm":
+                            Testing.Test(Convert.ConvertToMm(number), 25.4 * number, "Test for ConvertToMm");
+                            break;
+                        default:
+                            Console.WriteLine("Invalid input");
+                            break;
                     }
                 }
                 else
