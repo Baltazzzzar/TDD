@@ -67,6 +67,10 @@
                     Console.WriteLine("Invalid input");
                 }
             }
+            else
+            {
+                Console.WriteLine("Invalid input");
+            }
         }
     }
 }
