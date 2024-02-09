@@ -20,7 +20,27 @@
     {
         static void Main(string[] args)
         {
-            if (args.Length == 3)
+            if (args.Length == 2)
+            {
+                int number = int.Parse(args[0]);
+                string unit = args[1];
+                switch (unit)
+                {
+                    case "-cm":
+                        Console.WriteLine($"The number is: {Convert.ConvertToCm(number)} cm");
+                        break;
+                    case "-m":
+                        Console.WriteLine($"The number is: {Convert.ConvertToM(number)} m");
+                        break;
+                    case "-mm":
+                        Console.WriteLine($"The number is: {Convert.ConvertToMm(number)} mm");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input");
+                        break;
+                }
+            }
+            else if (args.Length == 3)
             {
                 if (args[2].Contains("-t"))
                 {
