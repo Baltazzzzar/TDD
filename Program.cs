@@ -35,3 +35,18 @@ class Program
         Console.WriteLine(converter.ConvertToMm(1));
     }
 }
+
+public class Testing
+{
+    public static void Test<T>(T expected, T actual, string description = "Test")
+    {
+        if (expected.Equals(actual))
+        {
+            Console.WriteLine($"{description} ++PASSED++. Expected: {expected}, Actual: {actual}");
+        }
+        else
+        {
+            Console.WriteLine($"{description} --FAILED--. Expected: {expected}, Actual: {actual}");
+        }
+    }
+}
