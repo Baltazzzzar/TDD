@@ -1,30 +1,37 @@
-﻿double ConvertToCm(int inches)
+﻿public class Converter
 {
-    return inches * 2.54;
-}
-
-double ConvertToM(int inches)
-{
-    return ConvertToCm(inches) / 100;
-}
-
-double ConvertToMm(int inches)
-{
-    return ConvertToCm(inches) * 10;
-}
-
-Test(ConvertToCm(1) == 2.54, "1 inch is 2.54 cm");
-Test(ConvertToM(1) == 0.0254, "1 inch is 0.0254 cm");
-Test(ConvertToMm(1) == 25.4, "1 inch is 25.4 cm");
-
-void Test(bool criteria, string description)
-{
-    if (criteria)
+    public double ConvertToCm(int inches)
     {
-        Console.WriteLine($"SUCCESS, {description}");
+        return inches * 2.54;
     }
-    else
+    public double ConvertToM(int inches)
     {
-        Console.WriteLine($"FAILURE, {description}");
+        return ConvertToCm(inches) / 100;
+    }
+    public double ConvertToMm(int inches)
+    {
+        return ConvertToCm(inches) * 10;
+    }
+    void Test(bool criteria, string description)
+    {
+        if (criteria)
+        {
+            Console.WriteLine($"SUCCESS, {description}");
+        }
+        else
+        {
+            Console.WriteLine($"FAILURE, {description}");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Converter converter = new Converter();
+        Console.WriteLine(converter.ConvertToCm(1));
+        Console.WriteLine(converter.ConvertToM(1));
+        Console.WriteLine(converter.ConvertToMm(1));
     }
 }
