@@ -8,11 +8,11 @@
         }
         public static double ConvertToM(int inches)
         {
-            return ConvertToCm(inches) / 100;
+            return inches * 0.0254;
         }
         public static double ConvertToMm(int inches)
         {
-            return ConvertToCm(inches) * 10;
+            return inches * 25.4;
         }
     }
 
